@@ -1,0 +1,1 @@
+echo worker: python BOT/BOT.py
