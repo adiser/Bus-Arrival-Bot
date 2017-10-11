@@ -102,7 +102,7 @@ def on_callback_query(msg):
                         )
 
     #Hard-code our token into the program
-TOKEN = '447452771:AAHMLdEP9Z2ccWYBESgr59lzFPRPOva0_O0'
+TOKEN = '471247568:AAFxc95gec9U0QNi0MYPKppZY548JRSDObE'
     #Runs the bot via the API
 bot = telepot.Bot(TOKEN)
 
