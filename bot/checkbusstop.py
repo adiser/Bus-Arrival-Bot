@@ -11,7 +11,7 @@ def checkbusstop(busstopcode):
     startswith = busstopcode[0]
 
         #Apply selective parsing - we choose a file to parse based on the bus stop code first digit
-    e = ET.parse('busstop' + startswith + '.xml').getroot()
+    e = ET.parse('/app/bot/busstop' + startswith + '.xml').getroot()
     for atype in e.findall('option'):
         if (busstopcode == atype.get('value')):
             return True  # YES THERE IS SUCH BUS STOP
