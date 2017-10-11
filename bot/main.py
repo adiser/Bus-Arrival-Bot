@@ -78,7 +78,7 @@ def on_callback_query(msg):
         # If the callback_data consists of digit
         # -- that is the concatenation of <SERVICE NO> and <BUS STOP CODE>
         # Replies accordingly
-    if data.isdigit():
+    if data[:-5].isdigit:
             #Extracts the bus stop code and service number from the numeric string
         busstopcode = data[-5:]
 
@@ -102,7 +102,7 @@ def on_callback_query(msg):
                         )
 
     #Hard-code our token into the program
-TOKEN = '471247568:AAFxc95gec9U0QNi0MYPKppZY548JRSDObE'
+TOKEN = '447452771:AAHMLdEP9Z2ccWYBESgr59lzFPRPOva0_O0'
     #Runs the bot via the API
 bot = telepot.Bot(TOKEN)
 

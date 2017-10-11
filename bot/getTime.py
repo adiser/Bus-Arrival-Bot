@@ -14,7 +14,7 @@ def convert_timedelta(duration):
     hours = days * 24 + seconds // 3600
     minutes = (seconds % 3600) // 60
     seconds = (seconds % 60)
-    return hours, minutes, seconds
+    return (hours-8), minutes, seconds
 
     #A function that:
     #Given a time in a string format '%Y-%m-%dT%H:%M:%S'
