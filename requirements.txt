@@ -1,0 +1,5 @@
+telepot
+requests
+pandas
+urllib3
+httplib2
