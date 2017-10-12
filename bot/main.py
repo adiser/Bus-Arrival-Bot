@@ -93,7 +93,7 @@ def on_callback_query(msg):
             #Calls a function that return:
             #InfoLists -- a list of ready to be displayed information
             #completetime -- a list of time with data, complete with the date to be inputted to getTime.stringTime()
-        InfoList, completeTime = bushandler.getOneArrival(busStopCode, serviceNo)
+        infoList, completeTime = bushandler.getOneArrival(busStopCode, serviceNo)
 
             # Formats bus-arrival-time message
         bot.sendMessage(from_id,
