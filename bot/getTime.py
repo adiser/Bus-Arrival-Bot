@@ -1,7 +1,7 @@
 import datetime
 
     #Convert string into an operatable time object
-def todatetime(t):
+def toDateTime(t):
     return datetime.datetime.strptime(t, '%Y-%m-%dT%H:%M:%S')
 
     #Return time delta
@@ -9,7 +9,7 @@ def timeDif (t, k):
     return t-k
 
     #Convert the time delta into a separated integer -- hours, minutes, seconds
-def convert_timedelta(duration):
+def convertTimeDelta(duration):
     days, seconds = duration.days, duration.seconds
     hours = days * 24 + seconds // 3600
     minutes = (seconds % 3600) // 60
@@ -22,9 +22,9 @@ def convert_timedelta(duration):
 def stringTime(t):
     if len(t)==0:
         return "No more bus services available"
-    t = todatetime(t)
+    t = toDateTime(t)
     dif = timeDif(t,datetime.datetime.now())
-    hours, minutes, seconds = convert_timedelta(dif)
+    hours, minutes, seconds = convertTimeDelta(dif)
     if seconds > 30:
         minutes+=1
     if hours < 0:
