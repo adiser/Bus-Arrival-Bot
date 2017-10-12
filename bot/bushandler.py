@@ -52,10 +52,10 @@ def getOneArrival(busstopcode, serviceNo):
     withdate3 = df.loc[serviceNo]['NextBus3']['EstimatedArrival'][0:-6]
 
         # Put all info into two separate list
-    InfoList = [operator, arrival1, arrival2, arrival3]
+    infoList = [operator, arrival1, arrival2, arrival3]
     completeTime = [withdate1,withdate2,withdate3]
 
-    return InfoList, completeTime
+    return infoList, completeTime
 
 
 # Our getAPIData method for Arrival Information.

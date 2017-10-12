@@ -44,7 +44,7 @@ def on_chat_message(msg):
         else :
 
                 # Calling a function to check if the input bus stop code is on the list
-            if checkbusstop.checkbusstop(busstopcode):
+            if checkbusstop.checkBusStop(busstopcode):
                     # Get a list of services serving a bus stop
                 serviceNums = bushandler.getServiceNums(busstopcode)
 
@@ -69,6 +69,12 @@ def on_chat_message(msg):
                     # - Return an error message
                 bot.sendMessage(chat_id, 'Sorry! There is no such bus stop code in our database,\n'
                                          'You might have mistyped your bus stop code. Please try again')
+
+    else:
+        bot.sendMessage(chat_id, "Sorry! I can only understand numbers. \n"
+                                 "Please insert a 5 digit bus stop code")
+
+
 # This function handles message with "callback_query" flavor, then replies accordingly
 def on_callback_query(msg):
         # Gets the headline information of the message
@@ -80,29 +86,29 @@ def on_callback_query(msg):
         # Replies accordingly
     if data[:-5].isdigit:
             #Extracts the bus stop code and service number from the numeric string
-        busstopcode = data[-5:]
+        busStopCode = data[-5:]
 
         serviceNo = data[0:-5]
 
             #Calls a function that return:
             #InfoLists -- a list of ready to be displayed information
             #completetime -- a list of time with data, complete with the date to be inputted to getTime.stringTime()
-        InfoList, completeTime = bushandler.getOneArrival(busstopcode, serviceNo)
+        InfoList, completeTime = bushandler.getOneArrival(busStopCode, serviceNo)
 
             # Formats bus-arrival-time message
         bot.sendMessage(from_id,
                         '<b>ESTIMATED ARRIVAL TIME</b>\n'
                         'Here are the estimated bus arrival times\nfor bus ' + serviceNo + ': \n\n'
-                        '🚌 First Bus      \t\t: ' + getTime.stringTime(completeTime[0]) + '\t--\t' + str(InfoList[1]) + "\n"
-                        '🚌 Second Bus \t\t: ' + getTime.stringTime(completeTime[1]) + '\t--\t' + str(InfoList[2])+ "\n"
-                        '🚌 Third Bus     \t: ' + getTime.stringTime(completeTime[2]) + '\t--\t' + str(InfoList[3]) + "\n\n"
-                        'Operator \t\t:\t' + str(InfoList[0]) + '\n\n'
+                        '🚌 First Bus      \t\t: ' + getTime.stringTime(completeTime[0]) + '\t--\t' + str(infoList[1]) + "\n"
+                        '🚌 Second Bus \t\t: ' + getTime.stringTime(completeTime[1]) + '\t--\t' + str(infoList[2])+ "\n"
+                        '🚌 Third Bus     \t: ' + getTime.stringTime(completeTime[2]) + '\t--\t' + str(infoList[3]) + "\n\n"
+                        'Operator \t\t:\t' + str(infoList[0]) + '\n\n'
                                            '👍👍 HAVE A NICE TRAVEL 👍👍',
                         'HTML'
                         )
 
     #Hard-code our token into the program
-TOKEN = '447452771:AAHMLdEP9Z2ccWYBESgr59lzFPRPOva0_O0'
+TOKEN = '471247568:AAFxc95gec9U0QNi0MYPKppZY548JRSDObE'
     #Runs the bot via the API
 bot = telepot.Bot(TOKEN)
 
