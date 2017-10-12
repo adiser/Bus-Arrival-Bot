@@ -6,7 +6,7 @@ import xml.etree.ElementTree as ET
     # Returns a boolean value:
     # True if we found a match within our database -- meaning that is there is a valid bus stop code
     # False if no match found within our database -- meaning that there is no such bus stop code
-def checkbusstop(busstopcode):
+def checkBusStop(busstopcode):
 
     startswith = busstopcode[0]
 
